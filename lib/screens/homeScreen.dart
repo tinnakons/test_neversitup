@@ -13,7 +13,6 @@ import 'package:test_neversitup/screens/navigations/appBarMenu.dart';
 import 'package:test_neversitup/screens/navigations/navigationMenuBar.dart';
 import 'package:test_neversitup/screens/utilitys/myStyle.dart';
 
-
 class HomeScreen extends StatefulWidget {
   static const String id = "Home";
   final void Function()? onInit;
@@ -92,29 +91,29 @@ class _HomeScreenState extends State<HomeScreen> {
             fontWeight: FontWeight.bold),
         items: [
           NavigationMenuBar().buildBottomNavigationBarItem(
-              FontAwesomeIcons.house,
-              FontAwesomeIcons.house,
+              FontAwesomeIcons.calculator,
+              FontAwesomeIcons.calculator,
               0,
               screenIndex,
               AppTextSetting.BTB_TITLE_0),
           NavigationMenuBar().buildBottomNavigationBarItem(
-              FontAwesomeIcons.tv,
-              FontAwesomeIcons.tv,
+              FontAwesomeIcons.code,
+              FontAwesomeIcons.code,
               1,
               screenIndex,
               AppTextSetting.BTB_TITLE_1),
-          NavigationMenuBar().buildBottomNavigationBarItem(
-              FontAwesomeIcons.solidBell,
-              FontAwesomeIcons.solidBell,
-              2,
-              screenIndex,
-              AppTextSetting.BTB_TITLE_2),
-          NavigationMenuBar().buildBottomNavigationBarItem(
-              FontAwesomeIcons.alignJustify,
-              FontAwesomeIcons.alignJustify,
-              3,
-              screenIndex,
-              AppTextSetting.BTB_TITLE_3),
+          // NavigationMenuBar().buildBottomNavigationBarItem(
+          //     FontAwesomeIcons.solidBell,
+          //     FontAwesomeIcons.solidBell,
+          //     2,
+          //     screenIndex,
+          //     AppTextSetting.BTB_TITLE_2),
+          // NavigationMenuBar().buildBottomNavigationBarItem(
+          //     FontAwesomeIcons.alignJustify,
+          //     FontAwesomeIcons.alignJustify,
+          //     3,
+          //     screenIndex,
+          //     AppTextSetting.BTB_TITLE_3),
         ],
         currentIndex: screenIndex.index > 4 ? 0 : screenIndex.index,
         //selectedItemColor: Colors.white,
@@ -166,10 +165,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 return Scaffold(
                   appBar: screenIndex.index == 5
                       ? null
-                      : AppBarMenu().mainAppBar(context, 'Baimiang',
-                          state),
+                      : AppBarMenu().mainAppBar(context, 'Baimiang', state),
                   body: Container(
-                   
                     child: SingleChildScrollView(
                       child: Column(
                         children: <Widget>[

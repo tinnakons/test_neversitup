@@ -44,20 +44,14 @@ class AppTextSetting {
   static String titleError = 'เกิดข้อผิดพลาด';
   static String textError = 'กรุณาเชื่อมต่ออินเตอร์เน็ตใหม่อีกครั้ง';
 
-
- 
-
   //Home Screen
-  static const String BTB_TITLE_0 = "Home";
-  static const String BTB_TITLE_1 = "Watch";
+  static const String BTB_TITLE_0 = "BTC";
+  static const String BTB_TITLE_1 = "Prime";
   static const String BTB_TITLE_2 = "Notification";
   static const String BTB_TITLE_3 = "More";
 
   //=====================================================================>
+  static String SELECT_DDL_TYPE = '1';
 
-  
-
-
-  
   AppTextSetting();
 }

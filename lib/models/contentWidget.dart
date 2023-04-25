@@ -1,12 +1,10 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:test_neversitup/models/appState.dart';
 import 'package:test_neversitup/models/getAction.dart';
 import 'package:test_neversitup/models/screenIndex.dart';
 import 'package:test_neversitup/screens/dashboard.dart';
-
-
+import 'package:test_neversitup/screens/prime.dart';
 
 import 'baseWidget.dart';
 
@@ -39,7 +37,15 @@ class _ContentWidgetState extends State<ContentWidget> {
           );
         }
         break;
-     
+      case 1:
+        {
+          return Prime(
+            onInit: () {
+              StoreProvider.of<AppState>(context).dispatch(getLoginAction);
+            },
+          );
+        }
+        break;
 
       default:
         {

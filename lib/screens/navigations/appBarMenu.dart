@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:test_neversitup/controllers/apiController.dart';
 import 'package:test_neversitup/models/appState.dart';
@@ -15,16 +14,16 @@ class AppBarMenu extends APIController {
       iconTheme: IconThemeData(color: AppTextSetting.primaryColor),
       title: Row(
         children: [
-          Expanded(
-            flex: 1,
-            child: Center(
-                child: Image.asset(
-              'assets/icons/facebook.png',
-              width: 40,
-              height: 30,
-              fit: BoxFit.contain,
-            )),
-          ),
+          // Expanded(
+          //   flex: 1,
+          //   child: Center(
+          //       child: Image.asset(
+          //     'assets/icons/facebook.png',
+          //     width: 40,
+          //     height: 30,
+          //     fit: BoxFit.contain,
+          //   )),
+          // ),
           Expanded(
             flex: 4,
             child: Stack(

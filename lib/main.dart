@@ -8,6 +8,7 @@ import 'package:test_neversitup/models/appState.dart';
 import 'package:test_neversitup/models/getAction.dart';
 import 'package:test_neversitup/screens/dashboard.dart';
 import 'package:test_neversitup/screens/homeScreen.dart';
+import 'package:test_neversitup/screens/prime.dart';
 import 'package:test_neversitup/screens/splashPage.dart';
 
 import 'models/reducer.dart';
@@ -58,6 +59,12 @@ class MyApp extends StatelessWidget {
                   StoreProvider.of<AppState>(context).dispatch(getLoginAction);
                 });
               },
+              Prime.id: (context) {
+                return Prime(onInit: () {
+                  StoreProvider.of<AppState>(context).dispatch(getLoginAction);
+                });
+              },
+
               
             },
             home: SplashPage(onInit: () {
