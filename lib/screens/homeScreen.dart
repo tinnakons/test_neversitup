@@ -102,12 +102,12 @@ class _HomeScreenState extends State<HomeScreen> {
               1,
               screenIndex,
               AppTextSetting.BTB_TITLE_1),
-          // NavigationMenuBar().buildBottomNavigationBarItem(
-          //     FontAwesomeIcons.solidBell,
-          //     FontAwesomeIcons.solidBell,
-          //     2,
-          //     screenIndex,
-          //     AppTextSetting.BTB_TITLE_2),
+          NavigationMenuBar().buildBottomNavigationBarItem(
+              FontAwesomeIcons.code,
+              FontAwesomeIcons.code,
+              2,
+              screenIndex,
+              AppTextSetting.BTB_TITLE_2),
           // NavigationMenuBar().buildBottomNavigationBarItem(
           //     FontAwesomeIcons.alignJustify,
           //     FontAwesomeIcons.alignJustify,

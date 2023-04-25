@@ -8,15 +8,15 @@ import 'package:test_neversitup/models/appState.dart';
 import 'package:test_neversitup/models/getAction.dart';
 import 'package:test_neversitup/screens/dashboard.dart';
 import 'package:test_neversitup/screens/homeScreen.dart';
+import 'package:test_neversitup/screens/myTest.dart';
 import 'package:test_neversitup/screens/prime.dart';
 import 'package:test_neversitup/screens/splashPage.dart';
 
 import 'models/reducer.dart';
 
-
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
+
   final store = Store<AppState>(appReducer,
       initialState: AppState.initial(), middleware: [thunkMiddleware]);
 
@@ -64,8 +64,11 @@ class MyApp extends StatelessWidget {
                   StoreProvider.of<AppState>(context).dispatch(getLoginAction);
                 });
               },
-
-              
+              MyTest.id: (context) {
+                return MyTest(onInit: () {
+                  StoreProvider.of<AppState>(context).dispatch(getLoginAction);
+                });
+              },
             },
             home: SplashPage(onInit: () {
               StoreProvider.of<AppState>(context).dispatch(getLoginAction);
