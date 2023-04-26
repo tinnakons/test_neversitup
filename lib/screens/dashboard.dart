@@ -240,7 +240,7 @@ class _DashboardState extends State<Dashboard> {
           SizedBox(
             height: 10,
           ),
-          Text('ประวัติราคาย้อนหลัง'),
+          if (_history.length > 0) Text('ประวัติราคาย้อนหลัง'),
           Column(
             children: listhistory(context, heightScreen, widthScreen, _history),
           )
