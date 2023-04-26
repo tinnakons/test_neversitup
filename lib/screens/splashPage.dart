@@ -57,7 +57,7 @@ class _SplashPageState extends State<SplashPage> {
               //       fontSize: 20,
               //       fontFamily: AppTextSetting.APP_FONT),
               // ),
-              image: Image.asset('assets/icons/facebook.png'),
+              image: Image.asset('assets/icons/logo.png'),
               backgroundColor: MyStyle().colorTheme(),
               styleTextUnderTheLoader: const TextStyle(),
               photoSize: 50.0,
