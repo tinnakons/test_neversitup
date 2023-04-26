@@ -27,6 +27,7 @@ class _DashboardState extends State<Dashboard> {
   int _start = 60;
   bool isLoading = true;
   dynamic _item;
+  List<dynamic> _history = [];
   double? _usd;
   double? _gbp;
   double? _eur;
@@ -80,6 +81,8 @@ class _DashboardState extends State<Dashboard> {
       _usd = 1 / _item['USD']['rate_float'];
       _gbp = 1 / _item['GBP']['rate_float'];
       _eur = 1 / _item['EUR']['rate_float'];
+
+      _history.add(_item);
     }
     widget.onInit!();
   }
@@ -234,9 +237,52 @@ class _DashboardState extends State<Dashboard> {
             ],
           ),
           Text('BTC = $result'),
+          SizedBox(
+            height: 10,
+          ),
+          Text('ประวัติราคาย้อนหลัง'),
+          Column(
+            children: listhistory(context, heightScreen, widthScreen, _history),
+          )
         ],
       ),
     );
+  }
+
+  List<Widget> listhistory(BuildContext context, double heightScreen,
+      double widthScreen, dynamic item) {
+    List<Widget> card = [];
+
+    for (var items in item) {
+      card.add(Container(
+          margin: const EdgeInsets.only(
+            top: 10,
+            left: 5,
+            right: 5,
+            bottom: 5,
+          ),
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20),
+              boxShadow: [MyStyle().boxShadow()]),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  Expanded(
+                      flex: 1, child: Text('USD = ${items['USD']['rate']}')),
+                  Expanded(
+                      flex: 1, child: Text('GBP = ${items['GBP']['rate']}')),
+                  Expanded(
+                      flex: 1, child: Text('EUR = ${items['EUR']['rate']}')),
+                ],
+              )
+            ],
+          )));
+    }
+
+    return card;
   }
 
   @override
