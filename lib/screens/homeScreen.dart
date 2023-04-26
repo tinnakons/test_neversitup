@@ -41,32 +41,9 @@ class _HomeScreenState extends State<HomeScreen> {
   var screenIndex = ScreenIndex(0);
   int screenTabIndex = 0;
 
-  // Future<int> reLoginPin() async {
-  //   SharedPreferences prefs = await SharedPreferences.getInstance();
-  //   DateTime now = new DateTime.now();
-  //   int loginTime = prefs.getInt('logintime') ?? 0;
-
-  //   if (now.minute < loginTime) {
-  //     return (now.minute + 60) - loginTime;
-  //   } else {
-  //     return now.minute - loginTime;
-  //   }
-  // }
-
   setCurrentTab(int tab) async {
-    // var sum = await reLoginPin();
-    // print('====> logintime : ' + sum.toString());
     FocusScope.of(context).unfocus();
     setState(() {
-      /*PINCode(
-              onInit: () {
-                StoreProvider.of<AppState>(context).dispatch(getLoginAction);
-              },
-              title: 'Enter Your PIN Code',
-              type: '1',
-            ) */
-      //set minute
-
       screenIndex.intIndex = tab;
       if (tab != 2) {
         screenTabIndex = 0;
@@ -108,12 +85,6 @@ class _HomeScreenState extends State<HomeScreen> {
               2,
               screenIndex,
               AppTextSetting.BTB_TITLE_2),
-          // NavigationMenuBar().buildBottomNavigationBarItem(
-          //     FontAwesomeIcons.alignJustify,
-          //     FontAwesomeIcons.alignJustify,
-          //     3,
-          //     screenIndex,
-          //     AppTextSetting.BTB_TITLE_3),
         ],
         currentIndex: screenIndex.index > 4 ? 0 : screenIndex.index,
         //selectedItemColor: Colors.white,
@@ -176,14 +147,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         ],
                       ),
                     ),
-
-                    //this.widgets
                   ),
                   bottomNavigationBar: bottomBar(),
-                  // drawer: Container(
-                  //   width: MediaQuery.of(context).size.width,
-                  //   child: DrawerMemu().showDrawerMenu(context, state),
-                  // ),
                 );
               })),
     );
