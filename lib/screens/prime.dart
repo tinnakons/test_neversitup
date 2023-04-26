@@ -56,7 +56,7 @@ class _PrimeState extends State<Prime> {
     int prime = 0;
     List<Widget> card = [];
 
-    for (int number = 0; number <= 1000; number++) {
+    for (int number = 0; number <= 100; number++) {
       if (number == 0 || number == 1) prime = 1;
 
       if (prime == 0) {

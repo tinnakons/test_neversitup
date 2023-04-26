@@ -52,6 +52,9 @@ class _MyTestState extends State<MyTest> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              SizedBox(
+                height: 10,
+              ),
               Center(child: Text('TEST')),
               SizedBox(
                 height: 10,
@@ -134,13 +137,17 @@ class _MyTestState extends State<MyTest> {
                     onChanged: (val) {
                       int count = 0;
 
-                      if (val.length >= 6 && count <= 2) {
+                      if (val.length >= 6) {
                         for (int i = 0; i < val.length; i++) {
-                          for (int j = i + 1; j < val.length; j++) {
+                          for (int j = i + 1; j <= i + 1; j++) {
                             if (count < 2) {
-                              if (val.substring(i, i + 1) ==
-                                  val.substring(j, j + 1)) {
-                                count++;
+                              if (j + 1 <= val.length) {
+                                if (val.substring(i, i + 1) ==
+                                    val.substring(j, j + 1)) {
+                                  count++;
+                                } else {
+                                  chk_txt2 = true;
+                                }
                               } else {
                                 chk_txt2 = true;
                               }
@@ -148,6 +155,7 @@ class _MyTestState extends State<MyTest> {
                               chk_txt2 = false;
                             }
                           }
+                          i++;
                         }
                       } else {
                         chk_txt2 = false;
@@ -202,15 +210,42 @@ class _MyTestState extends State<MyTest> {
                   child: TextFormField(
                     controller: txt_number3,
                     onChanged: (val) {
-                      int count = 0;
+                      int count1 = 0;
+                      int count2 = 0;
 
-                      if (val.length >= 6 && count <= 2) {
+                      if (val.length >= 6 && count1 <= 2) {
                         for (int i = 0; i < val.length; i++) {
-                          if (int.parse(val.substring(i, i + 1)) <
-                              (int.parse(val.substring(i, i + 1)) + 1)) {
-                            chk_txt2 = true;
-                          } else {
-                            chk_txt2 = false;
+                          for (int j = i + 1; j < val.length; j++) {
+                            if (count1 < 3) {
+                              if (((int.parse(val.substring(i, i + 1))) + 1)
+                                      .toString() ==
+                                  val.substring(j, j + 1)) {
+                                count1++;
+
+                                print('count1 : $count1');
+                              } else {
+                                for (int i = 0; i < val.length; i++) {
+                                  for (int j = i + 1; j < val.length; j++) {
+                                    if (count2 < 3) {
+                                      if (((int.parse(val.substring(
+                                                      i, i + 1))) -
+                                                  1)
+                                              .toString() ==
+                                          val.substring(j, j + 1)) {
+                                        count2++;
+                                        print('count2 : $count2');
+                                      } else {
+                                        chk_txt3 = true;
+                                      }
+                                    } else {
+                                      chk_txt3 = false;
+                                    }
+                                  }
+                                }
+                              }
+                            } else {
+                              chk_txt3 = false;
+                            }
                           }
                         }
                       } else {
@@ -265,7 +300,35 @@ class _MyTestState extends State<MyTest> {
                   ),
                   child: TextFormField(
                     controller: txt_number4,
-                    onChanged: (val) {},
+                    onChanged: (val) {
+                      int count = 0;
+
+                      if (val.length >= 6) {
+                        for (int i = 0; i < val.length; i++) {
+                          for (int j = i + 1; j <= i + 1; j++) {
+                            if (count < 3) {
+                              if (j + 1 <= val.length) {
+                                if (val.substring(i, i + 1) ==
+                                    val.substring(j, j + 1)) {
+                                  count++;
+                                  print(count);
+                                } else {
+                                  chk_txt4 = true;
+                                }
+                              } else {
+                                chk_txt4 = true;
+                              }
+                            } else {
+                              chk_txt4 = false;
+                            }
+                          }
+                          i++;
+                        }
+                      } else {
+                        chk_txt4 = false;
+                      }
+                      widget.onInit!();
+                    },
                     inputFormatters: <TextInputFormatter>[
                       FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
                     ],
